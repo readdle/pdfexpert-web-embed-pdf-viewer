@@ -15,6 +15,7 @@
     "build:svelte-tailwind": "pnpm build:viewers && pnpm --filter @embedpdf/example-svelte-tailwind run build:app",
     "build:packages": "turbo run build --filter=\"./packages/*\"",
     "build:viewers": "turbo run build --filter=\"./packages/*\" --filter=\"./viewers/*\"",
+    "build:react-viewer": "turbo run build --filter=\"./packages/*\" --filter=\"./viewers/react\"",
     "build:snippet": "turbo run build --filter=\"./packages/*\" --filter=\"./viewers/snippet\"",
     "build:watch": "ROARR_LOG=true turbowatch ./config/turbowatch.config.ts | roarr",
     "watch": "turbo watch",
