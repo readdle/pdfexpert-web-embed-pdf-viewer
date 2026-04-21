@@ -17,6 +17,7 @@ concurrency:
 permissions:
   contents: write
   id-token: write
+  packages: write
   pull-requests: write
 
 env:
@@ -27,7 +28,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      NPM_TOKEN:    ${{ secrets.NPM_TOKEN }}
 
     steps:
       - name: Checkout
@@ -46,7 +46,7 @@ jobs:
         with:
           node-version: 20
           cache: pnpm
-          registry-url: "https://registry.npmjs.org"
+          registry-url: "https://npm.pkg.github.com"
 
       - name: Install deps
         run: pnpm install --frozen-lockfile
@@ -58,6 +58,8 @@ jobs:
       - name: Version / Publish via Changesets
         id: changesets
         uses: changesets/action@v1
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           commit: "chore: version packages"
           title:  "chore: version packages"
