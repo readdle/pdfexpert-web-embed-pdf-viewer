@@ -1,5 +1,11 @@
 # @embedpdf/plugin-scroll
 
+## 2.14.1
+
+### Patch Changes
+
+- [`14c9d3f`](https://github.com/embedpdf/embed-pdf-viewer/commit/14c9d3fb5018d089511098d649c976a082482069) by [@mpogodin-readdle](https://github.com/mpogodin-readdle) – Switch publish registry to GitHub Packages.
+
 ## 2.14.0
 
 ## 2.13.0
