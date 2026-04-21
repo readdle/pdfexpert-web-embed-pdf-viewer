@@ -117,6 +117,7 @@
     "vue": ">=3.2.0"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com"
   }
 }

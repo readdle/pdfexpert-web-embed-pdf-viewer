@@ -82,6 +82,7 @@
     "url": "https://github.com/embedpdf/embed-pdf-viewer/issues"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com"
   }
 }
