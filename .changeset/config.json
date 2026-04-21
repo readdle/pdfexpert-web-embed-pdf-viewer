@@ -46,7 +46,7 @@
   ],
   "linked": [],
   "access": "public",
-  "baseBranch": "main",
+  "baseBranch": "pew-main",
   "updateInternalDependencies": "patch",
   "ignore": [
     "@embedpdf/website",
