@@ -1,5 +1,11 @@
 # @embedpdf/core
 
+## 2.14.3
+
+### Patch Changes
+
+- [`3384f01`](https://github.com/embedpdf/embed-pdf-viewer/commit/3384f01015f334d3b4dec2e40e7a26278e87d875) by [@mpogodin-readdle](https://github.com/mpogodin-readdle) – Add @embedpdf registry to .npmrc
+
 ## 2.14.2
 
 ## 2.14.1
