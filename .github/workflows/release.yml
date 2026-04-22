@@ -27,8 +27,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NPM_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
+      NODE_AUTH_TOKEN: ${{ secrets.PACKAGES_TOKEN }}
       PUBLISH_SUMMARY_PATH: publish-summary.json
 
     steps:
