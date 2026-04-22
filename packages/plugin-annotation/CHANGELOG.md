@@ -1,5 +1,11 @@
 # @embedpdf/plugin-annotation
 
+## 2.14.2
+
+### Patch Changes
+
+- [`4ac6e05`](https://github.com/embedpdf/embed-pdf-viewer/commit/4ac6e05e608eeac9f60c84dbe14fb1287236295d) by [@mpogodin-readdle](https://github.com/mpogodin-readdle) – Inital publish of packages. Annotation ids were added to DOM.
+
 ## 2.14.1
 
 ### Patch Changes

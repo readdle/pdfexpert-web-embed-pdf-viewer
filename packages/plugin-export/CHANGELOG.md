@@ -1,5 +1,7 @@
 # @embedpdf/plugin-export
 
+## 2.14.2
+
 ## 2.14.1
 
 ### Patch Changes
