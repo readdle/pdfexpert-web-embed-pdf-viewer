@@ -7,11 +7,11 @@
       "outputs": ["dist/**"]
     },
     "build:base": {
-      "dependsOn": ["^build:base"],
+      "dependsOn": ["^build", "^build:base"],
       "outputs": ["dist/index.js", "dist/index.cjs", "dist/index.d.ts", "dist/shared/**"]
     },
     "build:react": {
-      "dependsOn": ["^build:react", "build:base"],
+      "dependsOn": ["^build", "^build:react", "build:base"],
       "outputs": ["dist/react/**"]
     },
     "check-types": {
