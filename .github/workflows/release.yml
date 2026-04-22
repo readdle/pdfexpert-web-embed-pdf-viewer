@@ -59,12 +59,11 @@ jobs:
         with:
           path: |
             packages/*/dist
-            viewers/*/dist
-          key: build-${{ hashFiles('packages/*/src/**', 'viewers/*/src/**', 'pnpm-lock.yaml') }}
+          key: build-${{ hashFiles('packages/*/src/**', 'pnpm-lock.yaml') }}
 
       - name: Build packages
         if: steps.build-cache.outputs.cache-hit != 'true'
-        run: pnpm run build:viewers
+        run: pnpm run build:packages-react
 
       # Changesets will either open a version PR or publish if already versioned
       - name: Version / Publish via Changesets
