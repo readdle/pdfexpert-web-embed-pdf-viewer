@@ -476,7 +476,7 @@ export function AnnotationContainer<T extends PdfAnnotationObject>({
     transformOrigin: innerTransformOrigin,
   };
 
-  const pewId = trackedAnnotation.object.custom.pewId;
+  const pewId = trackedAnnotation.object.custom?.pewId;
 
   return (
     <div data-no-interaction data-test-id={`annotation-${trackedAnnotation.object.type}-${pewId ? pewId : trackedAnnotation.object.id}`}>
