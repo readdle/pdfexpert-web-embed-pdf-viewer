@@ -4,6 +4,7 @@ on:
   push:
     branches: [pew-main]
     paths:
+      - ".github/workflows/release.yml"
       - "packages/**"
       - ".changeset/**"
       - "pnpm-lock.yaml"
@@ -27,7 +28,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      #NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       PUBLISH_SUMMARY_PATH: publish-summary.json
 
     steps:
@@ -48,6 +50,7 @@ jobs:
           node-version: 20
           cache: pnpm
           registry-url: "https://npm.pkg.github.com"
+          scope: "@readdle"
 
       - name: Install deps
         run: pnpm install --frozen-lockfile
@@ -68,6 +71,8 @@ jobs:
       - name: Version / Publish via Changesets
         id: changesets
         uses: changesets/action@v1
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           commit: "chore: version packages"
           title:  "chore: version packages"
