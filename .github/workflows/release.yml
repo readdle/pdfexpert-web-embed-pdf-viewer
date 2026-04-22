@@ -5,7 +5,6 @@ on:
     branches: [pew-main]
     paths:
       - "packages/**"
-      - "viewers/**"
       - ".changeset/**"
       - "pnpm-lock.yaml"
   workflow_dispatch: {}
@@ -30,6 +29,7 @@ jobs:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      PUBLISH_SUMMARY_PATH: publish-summary.json
 
     steps:
       - name: Checkout
@@ -69,8 +69,6 @@ jobs:
       - name: Version / Publish via Changesets
         id: changesets
         uses: changesets/action@v1
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           commit: "chore: version packages"
           title:  "chore: version packages"
@@ -81,12 +79,12 @@ jobs:
       - name: Detect publish summary
         id: published
         run: |
-          if [ -f "pnpm-publish-summary.json" ]; then
-            COUNT=$(jq '.publishedPackages | length' pnpm-publish-summary.json 2>/dev/null || echo 0)
+          if [ -f "publish-summary.json" ]; then
+            COUNT=$(jq '.publishedPackages | length' publish-summary.json 2>/dev/null || echo 0)
             if [ "$COUNT" -gt 0 ]; then
               echo "did_publish=true" >> $GITHUB_OUTPUT
-              echo "published=$(jq -c '.publishedPackages' pnpm-publish-summary.json)" >> $GITHUB_OUTPUT
-              echo "version=$(jq -r '.publishedPackages[0].version' pnpm-publish-summary.json)" >> $GITHUB_OUTPUT
+              echo "published=$(jq -c '.publishedPackages' publish-summary.json)" >> $GITHUB_OUTPUT
+              echo "version=$(jq -r '.publishedPackages[0].version' publish-summary.json)" >> $GITHUB_OUTPUT
             else
               echo "did_publish=false" >> $GITHUB_OUTPUT
             fi

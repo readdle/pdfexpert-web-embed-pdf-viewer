@@ -476,8 +476,10 @@ export function AnnotationContainer<T extends PdfAnnotationObject>({
     transformOrigin: innerTransformOrigin,
   };
 
+  const pewId = trackedAnnotation.object.custom.pewId;
+
   return (
-    <div data-no-interaction>
+    <div data-no-interaction data-test-id={`annotation-${trackedAnnotation.object.type}-${pewId ? pewId : trackedAnnotation.object.id}`}>
       {/*
        * VISUAL LAYER — has blend mode applied at this level so it blends against the PDF
        * canvas (in the parent stacking context), not against a transparent inner background.
