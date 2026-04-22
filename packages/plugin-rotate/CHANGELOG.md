@@ -1,5 +1,7 @@
 # @embedpdf/plugin-rotate
 
+## 2.14.2
+
 ## 2.14.1
 
 ## 2.14.0

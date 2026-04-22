@@ -1,5 +1,7 @@
 # @embedpdf/plugin-view-manager
 
+## 2.14.2
+
 ## 2.14.1
 
 ## 2.14.0
