@@ -14,6 +14,7 @@
     "build:vue-vuetify": "turbo run build --filter=\"./packages/*\" --filter=\"./examples/vue-vuetify\"",
     "build:svelte-tailwind": "pnpm build:viewers && pnpm --filter @embedpdf/example-svelte-tailwind run build:app",
     "build:packages": "turbo run build --filter=\"./packages/*\"",
+    "build:packages-react": "turbo run build:base build:react --filter=\"./packages/*\"",
     "build:viewers": "turbo run build --filter=\"./packages/*\" --filter=\"./viewers/*\"",
     "build:snippet": "turbo run build --filter=\"./packages/*\" --filter=\"./viewers/snippet\"",
     "build:watch": "ROARR_LOG=true turbowatch ./config/turbowatch.config.ts | roarr",
@@ -22,7 +23,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,js,mjs,jsx,json,css,md}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,mjs,jsx,json,css,md}\"",
     "changeset": "changeset",
-    "ci:publish": "pnpm publish -r --access public --report-summary $GITHUB_WORKSPACE/publish-summary.json",
+    "ci:publish": "pnpm publish -r --access restricted --report-summary $GITHUB_WORKSPACE/publish-summary.json",
     "ci:publish:next": "pnpm publish -r --access public --tag next --publish-branch next --report-summary $GITHUB_WORKSPACE/publish-summary.json"
   },
   "devDependencies": {
