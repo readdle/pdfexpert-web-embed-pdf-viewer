@@ -26,8 +26,8 @@
     "ci:publish": "pnpm publish -r --access restricted --publish-branch pew-main --report-summary $GITHUB_WORKSPACE/publish-summary.json",
     "ci:publish:next": "pnpm publish -r --access public --tag next --publish-branch pew-main --report-summary $GITHUB_WORKSPACE/publish-summary.json",
     "prepare:publish": "node ./scripts/prepare-publish.mjs",
-    "ci:publish:readdle": "pnpm prepare:publish && CI=true pnpm install --no-frozen-lockfile && pnpm run build:packages-react && pnpm publish -r --access restricted --publish-branch pew-main --report-summary ./publish-summary.json",
-    "ci:publish:readdle:next": "pnpm prepare:publish && CI=true pnpm install --no-frozen-lockfile && pnpm run build:packages-react && pnpm publish -r --access public --tag next --publish-branch pew-main --report-summary ./publish-summary.json"
+    "ci:publish:readdle": "pnpm prepare:publish && CI=true pnpm install --no-frozen-lockfile && pnpm run build:packages-react && pnpm publish -r --access restricted --publish-branch pew-main --no-git-checks --report-summary ./publish-summary.json",
+    "ci:publish:readdle:next": "pnpm prepare:publish && CI=true pnpm install --no-frozen-lockfile && pnpm run build:packages-react && pnpm publish -r --access public --tag next --publish-branch pew-main --no-git-checks --report-summary ./publish-summary.json"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.6",
