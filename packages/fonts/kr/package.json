@@ -1,6 +1,6 @@
 {
   "name": "@embedpdf/fonts-kr",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "description": "Korean (Hangeul) fallback fonts for EmbedPDF - Noto Sans KR (7 weights)",
   "type": "module",

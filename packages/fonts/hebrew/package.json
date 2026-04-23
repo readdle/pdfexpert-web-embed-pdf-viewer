@@ -1,6 +1,6 @@
 {
   "name": "@embedpdf/fonts-hebrew",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "description": "Hebrew fallback fonts for EmbedPDF - Noto Sans Hebrew (Regular and Bold)",
   "type": "module",
