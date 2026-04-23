@@ -1,6 +1,6 @@
 {
   "name": "@embedpdf/fonts-tc",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": false,
   "description": "Traditional Chinese (Big5) fallback fonts for EmbedPDF - Noto Sans Hant (7 weights)",
   "type": "module",

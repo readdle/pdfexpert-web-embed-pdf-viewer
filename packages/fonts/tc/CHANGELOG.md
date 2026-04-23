@@ -1,5 +1,11 @@
 # @embedpdf/fonts-tc
 
+## 1.0.3
+
+### Patch Changes
+
+- [`816cd91`](https://github.com/embedpdf/embed-pdf-viewer/commit/816cd9176e87e055b7a0b6dfa40a5f597f88ffeb) by [@mpogodin-readdle](https://github.com/mpogodin-readdle) –
+
 ## 1.0.2
 
 ### Patch Changes
