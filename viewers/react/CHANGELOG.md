@@ -1,5 +1,11 @@
 # @embedpdf/react-pdf-viewer
 
+## 2.14.6
+
+### Patch Changes
+
+- [`11ca056`](https://github.com/embedpdf/embed-pdf-viewer/commit/11ca05698a1aa74d68080337c25168ff1106df83) by [@mpogodin-readdle](https://github.com/mpogodin-readdle) – Update publish command
+
 ## 2.14.5
 
 ### Patch Changes
