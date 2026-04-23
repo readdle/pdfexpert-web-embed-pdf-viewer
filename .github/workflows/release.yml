@@ -17,7 +17,6 @@ concurrency:
 permissions:
   contents: write
   id-token: write
-  packages: write
   pull-requests: write
 
 env:
@@ -28,8 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       PUBLISH_SUMMARY_PATH: publish-summary.json
 
     steps:
@@ -49,8 +47,18 @@ jobs:
         with:
           node-version: 20
           cache: pnpm
-          registry-url: "https://npm.pkg.github.com"
-          scope: "@readdle"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Configure npm for @readdle scope
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          if [ -z "${NPM_TOKEN}" ]; then
+            echo "NPM_TOKEN secret is required" >&2
+            exit 1
+          fi
+          pnpm config set "//registry.npmjs.org/:_authToken" "${NPM_TOKEN}"
+          pnpm config set "@readdle:registry" "https://registry.npmjs.org/"
 
       - name: Install deps
         run: pnpm install --frozen-lockfile
@@ -72,11 +80,12 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         with:
           commit: "chore: version packages"
           title:  "chore: version packages"
-          publish: pnpm ci:publish
+          publish: pnpm ci:publish:readdle
           createGithubReleases: false
 
       # Robust publish detection via the file your ci:publish writes
@@ -122,7 +131,11 @@ jobs:
         run: |
           mkdir -p release-assets
           echo "$PUBLISHED_JSON" | jq -r '.[].name' | while read name; do
-            short=$(echo "$name" | sed 's!.*/!!')
+            # publish-summary uses @readdle/embedpdf-<suffix>; map to packages/<suffix> or viewers/*
+            short="${name#@readdle/embedpdf-}"
+            if [ "$short" = "$name" ]; then
+              short=$(echo "$name" | sed 's!.*/!!')
+            fi
             # Handle viewers (snippet, react, vue, svelte) which are in viewers/
             if [ "$short" = "snippet" ] || [ "$short" = "react-pdf-viewer" ] || [ "$short" = "vue-pdf-viewer" ] || [ "$short" = "svelte-pdf-viewer" ]; then
               # Map package name to directory name
