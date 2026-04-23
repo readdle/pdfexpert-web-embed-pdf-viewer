@@ -1,6 +1,6 @@
 {
   "name": "@embedpdf/fonts-jp",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": false,
   "description": "Japanese (Shift-JIS) fallback fonts for EmbedPDF - Noto Sans JP (7 weights)",
   "type": "module",
