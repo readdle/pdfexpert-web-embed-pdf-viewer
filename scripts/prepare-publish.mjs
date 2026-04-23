@@ -2,6 +2,7 @@
 /**
  * CI-only: rewrite @embedpdf/<id> -> @readdle/embedpdf-<id> so published tarballs
  * use the @readdle scope while Git stays on upstream @embedpdf names.
+ * publishConfig targets GitHub Packages (https://npm.pkg.github.com).
  *
  * Run from pdfexpert-web-embed-pdf-viewer root. Uses Node built-ins only (safe before pnpm install).
  */
@@ -55,13 +56,11 @@ function transformJsonValue(v) {
   return out;
 }
 
-/** After scope renames, point publishConfig at npmjs (pnpm publish honors per-package registry). */
-function normalizePublishConfigForNpmjs(pkg) {
+/** After scope renames, point publishConfig at GitHub Packages (pnpm publish honors per-package registry). */
+function normalizePublishConfigForGitHubPackages(pkg) {
   if (!pkg || typeof pkg !== 'object' || !pkg.publishConfig || typeof pkg.publishConfig !== 'object') return;
   const pc = pkg.publishConfig;
-  if (typeof pc.registry === 'string' && pc.registry.includes('npm.pkg.github.com')) {
-    pc.registry = 'https://registry.npmjs.org';
-  }
+  pc.registry = 'https://npm.pkg.github.com';
   pc.access = 'restricted';
 }
 
@@ -122,7 +121,7 @@ async function main() {
       throw new Error(`Invalid JSON: ${rel}: ${e.message}`);
     }
     const next = transformJsonValue(data);
-    normalizePublishConfigForNpmjs(next);
+    normalizePublishConfigForGitHubPackages(next);
     const out = `${JSON.stringify(next, null, 2)}\n`;
     if (out !== raw) {
       await writeFile(abs, out, 'utf8');
