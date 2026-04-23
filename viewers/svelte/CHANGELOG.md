@@ -1,5 +1,7 @@
 # @embedpdf/svelte-pdf-viewer
 
+## 2.14.7
+
 ## 2.14.6
 
 ## 2.14.5

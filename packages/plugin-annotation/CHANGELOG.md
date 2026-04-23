@@ -1,5 +1,11 @@
 # @embedpdf/plugin-annotation
 
+## 2.14.7
+
+### Patch Changes
+
+- [`48e06c7`](https://github.com/embedpdf/embed-pdf-viewer/commit/48e06c717a74a2dec4843db5a824bf19b8974e12) by [@mpogodin-readdle](https://github.com/mpogodin-readdle) – Resolve imports
+
 ## 2.14.6
 
 ## 2.14.5
