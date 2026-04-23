@@ -5,7 +5,7 @@
     "types": ["vue"],
     "baseUrl": "../..",
     "paths": {
-      "@embedpdf/plugin-redaction": ["src/lib"]
+      "@embedpdf/plugin-redaction": ["src/lib/index.ts"]
     }
   },
   "include": ["./**/*.ts", "./**/*.vue"]
