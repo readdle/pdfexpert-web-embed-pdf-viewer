@@ -1,5 +1,4 @@
 ---
-'@embedpdf/example-vanilla-tailwind': patch
 '@embedpdf/build': patch
 '@embedpdf/core': patch
 '@embedpdf/engines': patch
@@ -43,9 +42,4 @@
 '@embedpdf/plugin-zoom': patch
 '@embedpdf/utils': patch
 '@embedpdf/react-pdf-viewer': patch
-'@embedpdf/snippet': patch
-'@embedpdf/svelte-pdf-viewer': patch
-'@embedpdf/vue-pdf-viewer': patch
 ---
-
-Update publish command
