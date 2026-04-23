@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from '@framework';
 import { ignore, Logger, PdfEngine } from '@embedpdf/models';
-import type { FontFallbackConfig } from '@embedpdf/engines';
+import type { FontFallbackConfig } from '../../lib/pdfium/font-fallback';
 
 const defaultWasmUrl = `https://cdn.jsdelivr.net/npm/@embedpdf/pdfium@__PDFIUM_VERSION__/dist/pdfium.wasm`;
 
@@ -35,8 +35,8 @@ export function usePdfiumEngine(config?: UsePdfiumEngineProps) {
     (async () => {
       try {
         const { createPdfiumEngine } = worker
-          ? await import('@embedpdf/engines/pdfium-worker-engine')
-          : await import('@embedpdf/engines/pdfium-direct-engine');
+          ? await import('../../lib/pdfium/web/worker-engine')
+          : await import('../../lib/pdfium/web/direct-engine');
 
         const pdfEngine = await createPdfiumEngine(wasmUrl, {
           logger,
