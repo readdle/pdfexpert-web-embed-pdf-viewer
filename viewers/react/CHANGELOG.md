@@ -1,5 +1,11 @@
 # @embedpdf/react-pdf-viewer
 
+## 2.14.8
+
+### Patch Changes
+
+- [`3b81f8f`](https://github.com/embedpdf/embed-pdf-viewer/commit/3b81f8fb5c0e39912ec1ad306b9a2e9ccd22955a) by [@mpogodin-readdle](https://github.com/mpogodin-readdle) – Add --no-git-checks flag
+
 ## 2.14.7
 
 ## 2.14.6

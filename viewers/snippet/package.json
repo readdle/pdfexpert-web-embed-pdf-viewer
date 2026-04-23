@@ -1,6 +1,6 @@
 {
   "name": "@embedpdf/snippet",
-  "version": "2.14.7",
+  "version": "2.14.8",
   "main": "dist/embedpdf.js",
   "types": "dist/embedpdf.d.ts",
   "license": "MIT",

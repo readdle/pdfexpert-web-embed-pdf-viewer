@@ -1,5 +1,7 @@
 # @embedpdf/plugin-ui
 
+## 2.14.8
+
 ## 2.14.7
 
 ### Patch Changes
