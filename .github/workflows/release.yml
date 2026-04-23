@@ -28,7 +28,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       PUBLISH_SUMMARY_PATH: publish-summary.json
 
@@ -73,10 +72,11 @@ jobs:
         uses: changesets/action@v1
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           commit: "chore: version packages"
           title:  "chore: version packages"
-          publish: pnpm ci:publish
+          publish: pnpm ci:publish:readdle
           createGithubReleases: false
 
       # Robust publish detection via the file your ci:publish writes
@@ -122,7 +122,11 @@ jobs:
         run: |
           mkdir -p release-assets
           echo "$PUBLISHED_JSON" | jq -r '.[].name' | while read name; do
-            short=$(echo "$name" | sed 's!.*/!!')
+            # publish-summary uses @readdle/embedpdf-<suffix>; map to packages/<suffix> or viewers/*
+            short="${name#@readdle/embedpdf-}"
+            if [ "$short" = "$name" ]; then
+              short=$(echo "$name" | sed 's!.*/!!')
+            fi
             # Handle viewers (snippet, react, vue, svelte) which are in viewers/
             if [ "$short" = "snippet" ] || [ "$short" = "react-pdf-viewer" ] || [ "$short" = "vue-pdf-viewer" ] || [ "$short" = "svelte-pdf-viewer" ]; then
               # Map package name to directory name

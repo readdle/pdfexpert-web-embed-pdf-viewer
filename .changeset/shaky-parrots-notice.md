@@ -1,0 +1,51 @@
+---
+'@readdle/embedpdf-plugin-interaction-manager': patch
+'@readdle/embedpdf-plugin-document-manager': patch
+'@readdle/embedpdf-plugin-view-manager': patch
+'@readdle/embedpdf-plugin-annotation': patch
+'@readdle/embedpdf-plugin-attachment': patch
+'@readdle/embedpdf-plugin-fullscreen': patch
+'@readdle/embedpdf-example-vanilla-tailwind': patch
+'@readdle/embedpdf-plugin-redaction': patch
+'@readdle/embedpdf-plugin-selection': patch
+'@readdle/embedpdf-plugin-signature': patch
+'@readdle/embedpdf-plugin-thumbnail': patch
+'@readdle/embedpdf-plugin-bookmark': patch
+'@readdle/embedpdf-plugin-commands': patch
+'@readdle/embedpdf-plugin-viewport': patch
+'@readdle/embedpdf-plugin-capture': patch
+'@readdle/embedpdf-plugin-history': patch
+'@readdle/embedpdf-plugin-export': patch
+'@readdle/embedpdf-plugin-render': patch
+'@readdle/embedpdf-plugin-rotate': patch
+'@readdle/embedpdf-plugin-scroll': patch
+'@readdle/embedpdf-plugin-search': patch
+'@readdle/embedpdf-plugin-spread': patch
+'@readdle/embedpdf-plugin-tiling': patch
+'@readdle/embedpdf-fonts-arabic': patch
+'@readdle/embedpdf-fonts-hebrew': patch
+'@readdle/embedpdf-plugin-print': patch
+'@readdle/embedpdf-plugin-stamp': patch
+'@readdle/embedpdf-fonts-latin': patch
+'@readdle/embedpdf-plugin-form': patch
+'@readdle/embedpdf-plugin-i18n': patch
+'@readdle/embedpdf-plugin-zoom': patch
+'@readdle/embedpdf-plugin-pan': patch
+'@readdle/embedpdf-plugin-ui': patch
+'@readdle/embedpdf-fonts-jp': patch
+'@readdle/embedpdf-fonts-kr': patch
+'@readdle/embedpdf-fonts-sc': patch
+'@readdle/embedpdf-fonts-tc': patch
+'@readdle/embedpdf-engines': patch
+'@readdle/embedpdf-models': patch
+'@readdle/embedpdf-pdfium': patch
+'@readdle/embedpdf-snippet': patch
+'@readdle/embedpdf-build': patch
+'@readdle/embedpdf-utils': patch
+'@readdle/embedpdf-svelte-pdf-viewer': patch
+'@readdle/embedpdf-core': patch
+'@readdle/embedpdf-react-pdf-viewer': patch
+'@readdle/embedpdf-vue-pdf-viewer': patch
+---
+
+Add CI/CD Pre-Publish Script to keep packages naming inside the codebase.
