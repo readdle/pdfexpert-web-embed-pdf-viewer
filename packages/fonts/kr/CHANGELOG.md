@@ -1,5 +1,11 @@
 # @embedpdf/fonts-kr
 
+## 1.0.3
+
+### Patch Changes
+
+- [`90965e9`](https://github.com/embedpdf/embed-pdf-viewer/commit/90965e9c805acdd587a3533f144534468e4bd019) by [@mpogodin-readdle](https://github.com/mpogodin-readdle) – Update publish command
+
 ## 1.0.2
 
 ### Patch Changes

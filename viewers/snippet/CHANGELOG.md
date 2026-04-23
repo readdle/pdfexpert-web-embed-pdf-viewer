@@ -1,5 +1,11 @@
 # @embedpdf/snippet
 
+## 2.14.6
+
+### Patch Changes
+
+- [`90965e9`](https://github.com/embedpdf/embed-pdf-viewer/commit/90965e9c805acdd587a3533f144534468e4bd019) by [@mpogodin-readdle](https://github.com/mpogodin-readdle) – Update publish command
+
 ## 2.14.5
 
 ### Patch Changes
